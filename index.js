@@ -23,7 +23,15 @@ const sdk = sdk_1.ThirdwebSDK.fromSigner(signer, "sepolia", {
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const contract = yield sdk.getContract("0xd9AeE92a600F2fB7F2eE352d3d4286491ADCcB77");
-        const tx = yield contract.erc1155.claim(0, 1);
+        const tx = yield contract.erc1155.claim(
+        // "0xa2e5306F55872af862B0fbf44a89484955a6BeDe",
+        0, 1);
+        console.log(tx.receipt);
+        const nftAbi = contract.abi;
+        const contractInterface = new ethers_1.ethers.utils.Interface(nftAbi);
+        const functionCall1 = contractInterface.encodeFunctionData("claimTo", [ /* values */]);
+        const functionCall2 = contractInterface.encodeFunctionData("claimTo", [ /* values */]);
+        contract.call("multicall", [functionCall1, functionCall2]);
     });
 }
 main().catch((err) => console.error(err));

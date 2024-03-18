@@ -16,16 +16,19 @@ async function main() {
   );
 
   const tx = await contract.erc1155.claim(
+    // "0xa2e5306F55872af862B0fbf44a89484955a6BeDe",
     0,
     1
   );
+
+  console.log(tx.receipt)
 
   const nftAbi = contract.abi
 
   const contractInterface = new ethers.utils.Interface(nftAbi)
 
-  const functionCall1 = contractInterface.encodeFunctionData("claimTo", [/* values */])
-  const functionCall2 = contractInterface.encodeFunctionData("claimTo", [/* values */])
+  const functionCall1 = contractInterface.encodeFunctionData("claim", [/* values */])
+  const functionCall2 = contractInterface.encodeFunctionData("claim", [/* values */])
 
   contract.call("multicall", [functionCall1, functionCall2])
 }

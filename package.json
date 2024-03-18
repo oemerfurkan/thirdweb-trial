@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.11.28",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@thirdweb-dev/sdk": "^4.0.47",
+    "dotenv": "^16.4.5",
+    "ethers": "^5.7.2"
+  }
+}

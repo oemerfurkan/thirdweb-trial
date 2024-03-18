@@ -24,8 +24,8 @@ async function main() {
 
   const contractInterface = new ethers.utils.Interface(nftAbi)
 
-  const functionCall1 = contractInterface.encodeFunctionData("claim", [/* values */])
-  const functionCall2 = contractInterface.encodeFunctionData("claim", [/* values */])
+  const functionCall1 = contractInterface.encodeFunctionData("claimTo", [/* values */])
+  const functionCall2 = contractInterface.encodeFunctionData("claimTo", [/* values */])
 
   contract.call("multicall", [functionCall1, functionCall2])
 }
